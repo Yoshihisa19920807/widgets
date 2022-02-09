@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Accordion from "./components/Accordion";
 import Search from "./components/Search";
 import Dropdown from "./components/Dropdown";
@@ -36,11 +36,17 @@ const options = [
 ]
 
 export default () => {
+  // const [stateName, setStateName] = useState(initialState); でgetter(stateName)とsetter(setStateName)を設定できる
+  const [selected, setSelected] = useState(options[0]);
   return (
     <div>
       {/* <Accordion items={items} /> */}
       {/* <Search /> */}
-      <Dropdown options={options}/>
+      <Dropdown
+        selected={selected}
+        onSelectedChange={setSelected}
+        options={options}
+      />
       {/* <LineChart width={400} height={400} data={data}>
         <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
