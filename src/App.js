@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import Accordion from "./components/Accordion";
 import Search from "./components/Search";
+// default import
 import Dropdown from "./components/Dropdown";
+// named import
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 const data = [{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 }, { name: 'Page B', uv: 300, pv: 2300, amt: 2300 }];
 
@@ -46,6 +48,8 @@ export default () => {
         selected={selected}
         onSelectedChange={setSelected}
         options={options}
+        // active={active}
+        // onActiveChange={setActive}
       />
       {/* <LineChart width={400} height={400} data={data}>
         <CartesianGrid strokeDasharray="3 3" />
