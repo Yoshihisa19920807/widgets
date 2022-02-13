@@ -48,8 +48,6 @@ export default () => {
         selected={selected}
         onSelectedChange={setSelected}
         options={options}
-        // active={active}
-        // onActiveChange={setActive}
       />
       {/* <LineChart width={400} height={400} data={data}>
         <CartesianGrid strokeDasharray="3 3" />
