@@ -3,6 +3,7 @@ import Accordion from "./components/Accordion";
 import Search from "./components/Search";
 // default import
 import Dropdown from "./components/Dropdown";
+import Translate from "./components/Translate";
 // named import
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 const data = [{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 }, { name: 'Page B', uv: 300, pv: 2300, amt: 2300 }];
@@ -39,40 +40,27 @@ const options = [
 
 export default () => {
   // const [stateName, setStateName] = useState(initialState); でgetter(stateName)とsetter(setStateName)を設定できる
-  const [selected, setSelected] = useState(options[0]);
-  const [showDropdown, setShowDropdown] = useState(true);
-  // useEffect(() => {
-  //   const onBodyClick = (event) => {
-  //     if (ref.current.contains(event.target)) {
-  //       return;
-  //     }
-  //     setOpen(false);
-  //   };
-  //   document.body.addEventListener("click", onBodyClick, { capture: true });
- 
-  //   return () => {
-  //     document.body.removeEventListener("click", onBodyClick, {
-  //       capture: true,
-  //     });
-  //   };
-  // }, []);
+  // const [selected, setSelected] = useState(options[0]);
+  // const [showDropdown, setShowDropdown] = useState(true);
 
   return (
     <div>
       {/* <Accordion items={items} /> */}
       {/* <Search /> */}
-      <button
+      {/* <button
         onClick={() => setShowDropdown(!showDropdown)}
       >
         Toggle Dropdown
       </button>
       {showDropdown ?
         <Dropdown
+          label='Select a Color'
           selected={selected}
           onSelectedChange={setSelected}
           options={options}
         /> : null
-      }
+      } */}
+      <Translate />
       {/* <LineChart width={400} height={400} data={data}>
         <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
