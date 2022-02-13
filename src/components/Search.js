@@ -18,7 +18,8 @@ const Search = () => {
         return () => {
             clearTimeout(timerId)
             console.log("clear")
-        } 
+        }
+    // ↓this useEffect will be fired only when 'term' is updated.
     }, [term]);
 
     useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Accordion from "./components/Accordion";
 import Search from "./components/Search";
 // default import
@@ -40,15 +40,39 @@ const options = [
 export default () => {
   // const [stateName, setStateName] = useState(initialState); でgetter(stateName)とsetter(setStateName)を設定できる
   const [selected, setSelected] = useState(options[0]);
+  const [showDropdown, setShowDropdown] = useState(true);
+  // useEffect(() => {
+  //   const onBodyClick = (event) => {
+  //     if (ref.current.contains(event.target)) {
+  //       return;
+  //     }
+  //     setOpen(false);
+  //   };
+  //   document.body.addEventListener("click", onBodyClick, { capture: true });
+ 
+  //   return () => {
+  //     document.body.removeEventListener("click", onBodyClick, {
+  //       capture: true,
+  //     });
+  //   };
+  // }, []);
+
   return (
     <div>
       {/* <Accordion items={items} /> */}
       {/* <Search /> */}
-      <Dropdown
-        selected={selected}
-        onSelectedChange={setSelected}
-        options={options}
-      />
+      <button
+        onClick={() => setShowDropdown(!showDropdown)}
+      >
+        Toggle Dropdown
+      </button>
+      {showDropdown ?
+        <Dropdown
+          selected={selected}
+          onSelectedChange={setSelected}
+          options={options}
+        /> : null
+      }
       {/* <LineChart width={400} height={400} data={data}>
         <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />

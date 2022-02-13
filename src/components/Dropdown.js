@@ -5,18 +5,24 @@ const Dropdown = ({ options, selected, onSelectedChange }) => {
   const ref = useRef();
 
   useEffect(() => {
-    document.body.addEventListener(
-      'click',
-      (event) => {
-        if (ref.current.contains(event.target)) {
-          return
-        }
-        // console.log(event.target)
-        setOpen(false);
-      },
-      { capture: true }
-    );
+    const onBodyClick = (event) => {
+      if (ref.current.contains(event.target)) {
+        return;
+      }
+      setOpen(false);
+    };
+    document.body.addEventListener("click", onBodyClick, { capture: true });
+
+    // Whenever you return a function inside useEffect, it runs when the DOM is to be cleaned up (is equal to componentWillUnmount)
+    return () => {
+      console.log("remove_listner")
+      document.body.removeEventListener("click", onBodyClick, {
+        capture: true,
+      });
+    };
+    // this empty array sets no value to be referred to as an indicator of when to run useEffect
   }, []);
+
 
   const renderedOptions = options.map((option) => {
 
